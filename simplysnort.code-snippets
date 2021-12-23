@@ -1,0 +1,159 @@
+{	//Author: Viswa Teja Vengala
+	//Reference: Snort Manual (http://manual-snort-org.s3-website-us-east-1.amazonaws.com/)
+	"alert":{ "scope":"snort",
+		"prefix": "alert",
+		"body":["alert ${1:tcp} $${2:EXTERNAL_NET} ${3:any} -> $${4:HOME_NET} ${5:any} (msg:\"${6:element}\"; flow:\"${7:to_server}\"; reference:\"${8:cve,CVE-XXXX-XXXX}\"; metadata:\"${9:service http}\"; sid:\"${10: }\";)"],
+		"description": "alert keyword"
+	},
+	"content":{ "scope":"snort",
+		"prefix": "content",
+		"body": ["content:\"${1:<content string>}\";"],
+		"description": "content keyword"
+	},
+	"nocase":{ "scope":"snort",
+		"prefix": "nocase",
+		"body": ["nocase;"],
+		"description": "nocase keyword"
+	},
+	"depth":{ "scope":"snort",
+		"prefix": "depth",
+		"body": ["depth:${1:0};"],
+		"description": "depth keyword"
+	},
+	"offset":{ "scope":"snort",
+		"prefix": "offset",
+		"body": ["offset:${1:0};"],
+		"description": "offset keyword"
+	},
+	"distance":{ "scope":"snort",
+		"prefix": "distance",
+		"body": ["distance:${1:0};"],
+		"description": "distance keyword"
+	},
+	"within":{ "scope":"snort",
+		"prefix": "within",
+		"body": ["within:${1:0};"],
+		"description": "within keyword"
+	},
+	"http_client_body":{ "scope":"snort",
+		"prefix": "http_client_body",
+		"body": ["http_client_body;"],
+		"description": "http_client_body keyword"
+	},
+	"http_cookie":{ "scope":"snort",
+		"prefix": "http_cookie",
+		"body": ["http_cookie;"],
+		"description": "http_cookie keyword"
+	},
+	"http_raw_cookie":{ "scope":"snort",
+		"prefix": "http_raw_cookie",
+		"body": ["http_raw_cookie;"],
+		"description": "http_raw_cookie keyword"
+	},
+	"http_header":{ "scope":"snort",
+		"prefix": "http_header",
+		"body": ["http_header;"],
+		"description": "http_header keyword"
+	},
+	"http_raw_header":{ "scope":"snort",
+		"prefix": "http_raw_header",
+		"body": ["http_raw_header;"],
+		"description": "http_raw_header keyword"
+	},
+	"http_method":{ "scope":"snort",
+		"prefix": "http_method",
+		"body": ["http_method;"],
+		"description": "http_method keyword"
+	},
+	"http_uri":{ "scope":"snort",
+		"prefix": "http_uri",
+		"body": ["http_uri;"],
+		"description": "http_uri keyword"
+	},
+	"http_raw_uri":{ "scope":"snort",
+		"prefix": "http_raw_uri",
+		"body": ["http_raw_uri;"],
+		"description": "http_raw_uri keyword"
+	},
+	"http_stat_code":{ "scope":"snort",
+		"prefix": "http_stat_code",
+		"body": ["http_stat_code;"],
+		"description": "http_stat_code keyword"
+	},
+	"http_stat_msg":{ "scope":"snort",
+		"prefix": "http_stat_msg",
+		"body": ["http_stat_msg;"],
+		"description": "http_stat_msg keyword"
+	},
+	"http_encode":{ "scope":"snort",
+		"prefix": "http_encode",
+		"body": ["http_encode:${1:<uri|header|cookie>},${2:utf8|uencode...};"],
+		"description": "http_encode keyword"
+	},
+	"fast_pattern":{ "scope":"snort",
+		"prefix": "fast_pattern",
+		"body": ["fast_pattern${1::only};"],
+		"description": "fast_pattern keyword"
+	},
+	"uricontent":{ "scope":"snort",
+		"prefix": "uricontent",
+		"body": ["uricontent:\"${1:<content string>}\";"],
+		"description": "uricontent keyword"
+	},
+	"urilen":{ "scope":"snort",
+		"prefix": "urilen",
+		"body": ["urilen:${1:<number>}${2:,<uribuf(norm|raw)>};"],
+		"description": "uricontent keyword"
+	},
+	"isdataat":{ "scope":"snort",
+		"prefix": "isdataat",
+		"body": ["isdataat:${1:int}${2:,<relative|rawbytes>};"],
+		"description": "isdataat keyword"
+	},
+	"pcre":{ "scope":"snort",
+		"prefix": "pcre",
+		"body": ["pcre:\"/${1:regex}/\";"],
+		"description": "pcre keyword"
+	},
+	"pkt_data":{ "scope":"snort",
+		"prefix": "pkt_data",
+		"body": ["pkt_data;"],
+		"description": "pkt_data keyword"
+	},
+	"file_data":{ "scope":"snort",
+		"prefix": "file_data",
+		"body": ["file_data;"],
+		"description": "file_data keyword"
+	},
+	"base64_decode":{ "scope":"snort",
+		"prefix": "base64_decode",
+		"body": ["base64_decode:${1:${2:bytes} ${3:<bytes_to_decode>},${4:offset ${5:<offset>}},${6:<relative>}};"],
+		"description": "base64_decode keyword"
+	},
+	"base64_data":{ "scope":"snort",
+		"prefix": "base64_data",
+		"body": ["base64_data;"],
+		"description": "base64_data keyword"
+	},
+	"byte_test":{ "scope":"snort",
+		"prefix": "byte_test",
+		"body": ["byte_test:${1:<bytes to convert>},${2:<operator>},${3:<value>},${4:<offset>},${5:${6:<relative>},${7:<endian>}};"],
+		"description": "byte_test keyword"
+	},
+	"byte_jump":{ "scope":"snort",
+		"prefix": "byte_jump",
+		"body": ["byte_jump:${1:<bytes to convert>},${2:<offset>},${3:${4:<relative>},${5:<endian>}};"],
+		"description": "byte_jump keyword"
+	},
+	"byte_extract":{ "scope":"snort",
+		"prefix": "byte_extract",
+		"body": ["byte_extract:${1:<bytes to extract>},${2:<offset>},${3:<variable>}${4:${5:<relative>},${6:<endian>}};"],
+		"description": "byte_extract keyword"
+	},
+	"byte_math":{ "scope":"snort",
+		"prefix": "byte_math",
+		"body": ["byte_math:${1:bytes <bytes to extract>},${2:offset <offset_value>},${3:oper <opertor>},${4:rval <r_value},${5:result <result_variable}${4:,${5:<relative>},${6:<endian>}};"],
+		"description": "byte_math keyword"
+	},
+
+}

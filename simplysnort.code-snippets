@@ -1,6 +1,6 @@
 {	//Author: Viswa Teja Vengala
 	//Reference: Snort Manual (http://manual-snort-org.s3-website-us-east-1.amazonaws.com/)
-
+//Nice Work man
 	// Snort Specific keywords
 	"alert":{ "scope":"snort",
 		"prefix": "alert",

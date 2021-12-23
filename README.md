@@ -1,5 +1,5 @@
 # simplysnort
-A simple user defined vscode snippet file which helps in writing snort rules faster
+A simple user defined vscode snippet file which helps you to write snort rules faster
 
 How to use:<br/>
 1.) copy simplesnort.code-snippets file to C:\Users\\%USERNAME%\AppData\Roaming\Code\User\snippets<br/>

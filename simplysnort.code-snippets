@@ -1,5 +1,7 @@
 {	//Author: Viswa Teja Vengala
 	//Reference: Snort Manual (http://manual-snort-org.s3-website-us-east-1.amazonaws.com/)
+
+	// Snort Specific keywords
 	"alert":{ "scope":"snort",
 		"prefix": "alert",
 		"body":["alert ${1:tcp} $${2:EXTERNAL_NET} ${3:any} -> $${4:HOME_NET} ${5:any} (msg:\"${6:element}\"; flow:\"${7:to_server}\"; reference:\"${8:cve,CVE-XXXX-XXXX}\"; metadata:\"${9:service http}\"; sid:\"${10: }\";)"],
@@ -155,5 +157,31 @@
 		"body": ["byte_math:${1:bytes <bytes to extract>},${2:offset <offset_value>},${3:oper <opertor>},${4:rval <r_value},${5:result <result_variable}${4:,${5:<relative>},${6:<endian>}};"],
 		"description": "byte_math keyword"
 	},
+
+	// custom keywords for frequently used rules
+	"dns_query_request":{
+		"scope": "snort",
+		"prefix": "dns_query_request",
+		"body": ["alert ${1:udp} $${2:EXTERNAL_NET} ${3:any} -> $${4:HOME_NET} ${5:53} (msg:\"${6:DNS rule}\"; flow:\"${7:to_server}\";byte_test:1, !&, 0xF8, 2; reference:\"${8:cve,CVE-XXXX-XXXX}\"; sid:\"${10: }\";)"],
+		"description": "default DNS request rule"
+	},
+	"dns_query_response":{
+		"scope": "snort",
+		"prefix": "dns_query_response",
+		"body": ["alert ${1:udp} $${2:EXTERNAL_NET} ${3:53} -> $${4:HOME_NET} ${5:any} (msg:\"${6:DNS rule}\"; flow:\"${7:to_client}\";byte_test:1, &, 0xF8, 2; reference:\"${8:cve,CVE-XXXX-XXXX}\";  sid:\"${10: }\";)"],
+		"description": "default DNS request rule"
+	},
+	"GET":{
+		"scope": "snort",
+		"prefix": "GET",
+		"body": ["content:\"GET\";offset:0;depth:3;"],
+		"description": "check for GET method"
+	},
+	"POST":{
+		"scope": "snort",
+		"prefix": "POST",
+		"body": ["content:\"POST\";offset:0;depth:4;"],
+		"description": "check for POST method"
+	}
 
 }
